@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday! 🎉</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; font-family: 'Poppins', Arial, sans-serif; }
+    body {
+      background: linear-gradient(135deg, #ffb6c1, #ffc1cc, #ffe4e1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 25px;
+      text-align: center;
+      max-width: 650px;
+      box-shadow: 0 20px 50px rgba(255,105,180,.3);
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff1493;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #ff69b4;
+      box-shadow: 0 0 20px rgba(255,105,180,.6);
+      margin-bottom: 15px;
+      animation: bounce 3s infinite;
+    }
+
+    .type {
+      font-size: 1.1rem;
+      margin: 15px 0;
+      color: #c71585;
+      min-height: 24px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(255,105,180,.3);
+      transition: transform .3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 22px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #ff69b4, #ff1493);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255,105,180,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255,105,180,.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="may1.jpg" class="avatar" alt="Foto">
+    <h1>💖 Happy Birthday, Sahabatku! 💖</h1>
+    <h2>Semoga hidupmu selalu penuh warna pink kebahagiaan ✨</h2>
+    <p class="type" id="typing"></p>
+
+    <div class="gallery">
+      <img src="may2.jpg" alt="may2">
+      <img src="may3.jpg" alt="may3">
+    </div>
+
+    <button class="btn" onclick="alert('💝 Semoga panjang umur dan bahagia selalu!')">Klik untuk kejutan 🎁</button>
+  </div>
+
+  <script>
+    const teks = [
+      "Hari ini hari spesialmu 💕",
+      "Semoga semua impianmu jadi nyata 🌸",
+      "Nikmati kue manis dan tawa 🎂",
+      "Kebahagiaan selalu menyertaimu 💖"
+    ];
+    let idx = 0, i = 0;
+    function ketik(){
+      if(i < teks[idx].length){
+        document.getElementById("typing").textContent += teks[idx].charAt(i);
+        i++;
+        setTimeout(ketik, 70);
+      } else {
+        setTimeout(() => {
+          document.getElementById("typing").textContent = "";
+          idx = (idx+1)%teks.length;
+          i = 0;
+          ketik();
+        }, 2000);
+      }
+    }
+    ketik();
+  </script>
+  <a href="hbdd.html"></a>
+</body>
+</html>
